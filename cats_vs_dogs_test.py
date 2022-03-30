@@ -42,7 +42,7 @@ with torch.no_grad(): # Gradient를 업데이트하지 않는다
 
         outputs = model(inputs)
         #print(outputs)
-        decisions = torch.sigmoid(outputs).cpu().data.numpy()
+        decisions = torch.sigmoid(outputs)
         preds = decisions > 0.5
         #print(preds)
         test_corrects += torch.sum(preds == labels.data)
